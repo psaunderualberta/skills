@@ -1,6 +1,6 @@
 ---
 name: thesis-extract
-description: Extract thesis-relevant information (design decisions, numerical stability tricks, JAX/Equinox patterns, privacy accounting math) from a targeted area of the codebase and append findings to thesis/notes/<topic>.md. Use when the user wants to document codebase internals for their thesis, capture design rationale, record implementation details, or mentions "thesis notes" / "extract for thesis".
+description: Extract thesis-relevant information (design decisions, numerical stability tricks, JAX/Equinox patterns, privacy accounting math) from a targeted area of the codebase and append findings to thesis/notes/<topic>.md. Use when the user wants to document codebase internals for their thesis, capture design rationale, record implementation details, or mentions "thesis notes" / "extract for thesis". This extracts from source code — for interpreting or critiquing experimental result figures/tables, use interpret-results instead.
 ---
 
 # Thesis Extract
