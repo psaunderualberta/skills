@@ -53,10 +53,10 @@ Scan the chosen home **before** writing:
 
 - **Light homes — finish inline:**
   - **CLAUDE.md** — concise imperative rule + short rationale, in (or creating) a "Conventions" / "Corrections" section. Edit only; don't commit.
-  - **memory** — one file per fact under the memory dir with `type: feedback`, body followed by `**Why:**` and `**How to apply:**` lines; add the one-line `MEMORY.md` pointer.
+  - **memory** — one file per fact under the memory dir with the memory type that fits (usually `feedback`; use `reference`/`project` for a pure environment/tooling fact), body followed by `**Why:**` and `**How to apply:**` lines; add the one-line `MEMORY.md` pointer.
 - **Heavy homes — route, don't author inline:** write a seeded brief (the correction + drafted rule + why) and hand to `write-a-skill` / `update-config`. Don't hand-edit `settings.json` or author a whole skill mid-ritual.
 
 ## 6. Report & rewind nudge
 
 - One line: what rule was written, to which home, and what changed on a merge/conflict.
-- If a failed attempt is still in context, nudge: *"lesson captured to `<home>`; you can /rewind to drop the failed attempt."* Never auto-rewind — it's destructive and you can't judge the other turns.
+- Nudge to rewind **only** if a failed attempt is still in context *and* hasn't been superseded by completed work: *"lesson captured to `<home>`; you can /rewind to drop the failed attempt."* If the attempt was already resolved (fixed, committed, moved past), skip the nudge — rewinding would destroy good work. Never auto-rewind — it's destructive and you can't judge the other turns.
