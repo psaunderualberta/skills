@@ -48,7 +48,7 @@ Keep this self-contained — no heavy machinery:
 
 - **Offer to zoom.** "Point at a box and I'll redraw that piece in detail" — this is just the skill re-running, focused on one node.
 - **Stay in normal Q&A** about what you drew. That's just conversation, no special tooling.
-- If the user signals they want a *sustained, multi-session* learning arc, drop a **one-line pointer**: "if you want to learn this over time, `/teach` sets up a workspace." Never auto-escalate into `teach`.
+- If the user signals they want a *sustained, multi-session* learning arc, drop a **one-line pointer**: for learning *this codebase* over time, `/learn-codebase` sets up recall practice with persistent weak-spot tracking; for a concept or skill, `/teach` sets up a workspace. Never auto-escalate into either.
 
 ## Persistence
 
