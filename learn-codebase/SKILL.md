@@ -42,6 +42,14 @@ is "resurface what you're shaky on." Do not over-claim otherwise to the user.
 3. **You read the code.** Now trace the real source for that subsystem. Build a
    ground-truth checklist: public entry points, key invariants, surprising control
    flow. Ground everything in `file:line` — never quiz from parametric guesses.
+
+   **Never cite a bare `:NNN`.** A line number without a path is unusable to someone
+   who does not yet know the codebase — which is, definitionally, the person you are
+   teaching. Write `user_snapshot_ingester.go:547`, not `:547`. Carry the filename on
+   *every* reference, even when it repeats: a reveal usually spans several files, and
+   the reader cannot infer which one is "current". Re-anchor with the full path the
+   first time each file appears in a message, and again whenever you switch files
+   mid-paragraph.
 4. **Probe the gaps, one question at a time.** Order:
    1. **Contradictions** — things the user stated that the code contradicts (active
       misconceptions; highest priority).
@@ -54,6 +62,11 @@ is "resurface what you're shaky on." Do not over-claim otherwise to the user.
    this is a deliberate override of explain-visually's ephemeral default, legitimate
    because the user is in a persistent-learning context. For non-structural gaps
    (wrong invariant, missed edge case), a prose reveal is better.
+
+   The bare-`:NNN` ban from step 3 applies hardest here. Under reveal, you are moving
+   fast across files you have read and the user has not, and dropping the path is the
+   default failure. Same rule in the store: every concept line in `<topic>.md` needs a
+   path, so it still resolves next month.
 6. **Update the store.** Record/adjust each concept's confidence and the
    `last-reviewed` date.
 
