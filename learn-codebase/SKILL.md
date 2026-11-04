@@ -1,8 +1,8 @@
 ---
 name: learn-codebase
-description: Build and verify your mental model of an unfamiliar codebase through retrieval practice — you explain how a subsystem works, the agent reads the real code, probes the gaps, and persists your weak spots so they resurface next session. Use when the user wants to learn a codebase, be quizzed on how existing code works, test their understanding of a subsystem, or resume a previous learning session. Invoke by hand (/learn-codebase); not auto-triggered.
+description: Build and verify your mental model of an unfamiliar codebase through retrieval practice — you explain how a subsystem works, the agent reads the real code, probes the gaps, and persists your weak spots so they resurface next session. Use when the user wants to learn a codebase, be quizzed on how existing code works, test their understanding of a subsystem, resume a previous learning session, or learn the code while building in it (build mode). Invoke by hand (/learn-codebase); not auto-triggered.
 disable-model-invocation: true
-argument-hint: "Which subsystem or area do you want to learn?"
+argument-hint: "Which subsystem or area do you want to learn? Prefix with 'build' to learn while you code."
 ---
 
 # learn-codebase
@@ -16,12 +16,19 @@ source; the gaps persist and resurface later. This is the inverse of
 **You do not lecture.** Your job is to elicit the user's model, compare it to ground
 truth you read from the code, and probe the delta — one question at a time.
 
+If the first word of the argument is exactly `build`, the user is writing code and
+wants to learn as they go. Say in one line that you are starting build mode. Then
+follow [build-mode.md](./build-mode.md) instead of `## The loop` and
+`## Selecting what to quiz on resume`.
+
 ## The store
 
 Per-subsystem state lives at `~/.claude/learn-codebase/<repo>/<topic>.md`, where
-`<repo>` is the target repo's directory basename and `<topic>` is the named
-subsystem. This is the user's personal mental-model tracker — it deliberately does
-**not** live in the target repo (never dirty a repo you don't own).
+`<repo>` is the target repo's main checkout name and `<topic>` is the named
+subsystem. Get `<repo>` with
+`basename "$(dirname "$(git rev-parse --path-format=absolute --git-common-dir)")"`.
+This is the user's personal mental-model tracker — it deliberately does **not** live
+in the target repo (never dirty a repo you don't own).
 
 At session start, read the current date from context and record it as the
 `last-reviewed` marker. Each concept carries a coarse confidence: `weak` / `medium`
@@ -68,11 +75,13 @@ is "resurface what you're shaky on." Do not over-claim otherwise to the user.
    default failure. Same rule in the store: every concept line in `<topic>.md` needs a
    path, so it still resolves next month.
 6. **Update the store.** Record/adjust each concept's confidence and the
-   `last-reviewed` date.
+   `last-reviewed` date. Set the markers, `level-set:` dates, and `## Next session` as
+   store-format.md says.
 
 ## Selecting what to quiz on resume
 
-When resuming an existing topic, surface `weak` concepts first, then `medium`, and
+When resuming an existing topic, surface the `## Next session` items first, then `weak`
+concepts, then `medium`, and
 re-test `solid` ones only occasionally (or when the code has changed since
 `last-reviewed`). Always still open with step 2 (user explains) for the concept in
 question — recall before reveal, every time.
