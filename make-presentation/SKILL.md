@@ -46,5 +46,5 @@ Write all files for **this** presentation into a folder **specific to this talk*
 ## Constraints
 - Keep everything local: the only network dependency is the CDN `<script>` for the library; all content (text, base64 figures) stays in the subdirectory.
 - Give each presentation its own folder (`presentations/<slug>/`) so repeated runs don't collide or scatter files across the project root; never overwrite a prior deck's folder.
-- Pin the CDN version (e.g. `pptxgenjs@4`) so the deck reproduces.
+- Pin the exact CDN version (`pptxgenjs@4.0.1`) so the deck reproduces.
 - Never assume a results-figure location. Use the path documented in `CLAUDE.md`/context files, or one the user gives you; if neither exists, ask before generating.

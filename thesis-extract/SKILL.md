@@ -46,7 +46,7 @@ Target path: `thesis/notes/<inferred-topic>.md` (relative to repo root).
   ```
   ---
 
-  _Appended 2026-05-14: <one-line note on what was added or refined>._
+  _Appended <YYYY-MM-DD>: <one-line note on what was added or refined>._
   ```
   Use today's date from the environment context. Do not rewrite or remove existing content unless the user explicitly asks.
 

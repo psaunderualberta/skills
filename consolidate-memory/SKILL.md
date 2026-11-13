@@ -7,7 +7,7 @@ argument-hint: "(optional) type or topic to focus on"
 
 # consolidate-memory
 
-A periodic grooming ritual for the file-based memory system — the agent's analogue of REM sleep's "dream" pass: read everything that has accumulated, **merge true duplicates**, **flag contradictions** for a human to settle, and reconcile the index. Boris Cherny's page describes auto-dream as memory that "consolidates, dedupes, cleans" itself; this is the hand-invoked version of the consolidate-and-dedupe half.
+A periodic grooming ritual for the file-based memory system: read everything that has accumulated, **merge true duplicates**, **flag contradictions** for a human to settle, and reconcile the index.
 
 The memory system this grooms is described in the harness memory rules: one fact per file under `memory/`, frontmatter (`name`, `description`, `metadata.type ∈ {user, feedback, project, reference}`), `**Why:**`/`**How to apply:**` bodies for `feedback`/`project`, `[[name]]` cross-links, and a `MEMORY.md` index of one-line pointers.
 

@@ -12,7 +12,7 @@ migrations         : db/migrations/*.sql, applied via `make migrate-up`
 CLI/API entrypoint : HTTP API (openapi.yaml present)
 formatter/linter   : gofmt + golangci-lint present; prettier in web/
 CI                 : .github/workflows/ci.yml runs go test + lint
-project verify skill: none yet (→ recommend /verify to bootstrap)
+project verify skill: none yet (→ /run drives the app directly)
 ```
 
 ## 2. Gate check
@@ -50,9 +50,9 @@ The `go test ./...` suite is cheap (~8s), so a **Stop hook** running it was also
 
 | Change type        | What "verified" means                                  | How to run it                                  |
 |--------------------|--------------------------------------------------------|------------------------------------------------|
-| Backend logic      | `go test ./...` passes; affected endpoint driven once  | /verify (drives the HTTP endpoint)             |
+| Backend logic      | `go test ./...` passes; affected endpoint driven once  | /run (drives the HTTP endpoint)                |
 | Schema migration   | applies cleanly on a scratch DB and rolls back         | make migrate-up then migrate-down on a tmp DB  |
-| UI change          | component renders and the affected flow works          | /verify (drives the browser via Chrome ext)    |
+| UI change          | component renders and the affected flow works          | /run (drives the browser via Chrome ext)       |
 | API contract       | openapi.yaml regenerated and matches handlers          | make openapi-check                             |
 | docs/config-only   | no runtime verification required                       | —                                              |
 
@@ -69,5 +69,5 @@ A small pure-library repo: one `pytest` command, no UI, no migrations, no specia
 → **Bail.** Write the single line and stop:
 
 ```md
-Verification: run `/verify` before committing; no domain-specific policy needed.
+Verification: run the tests and `/run` before committing; no domain-specific policy needed.
 ```

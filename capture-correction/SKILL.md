@@ -32,7 +32,7 @@ Check in order — stop at the first match:
 
 | # | If the rule is… | Home | Action |
 |---|---|---|---|
-| 1 | deterministic & should always happen mechanically (auto-format, always-lint) | **hook** | tee up [update-config](../update-config) |
+| 1 | deterministic & should always happen mechanically (auto-format, always-lint) | **hook** | tee up the built-in `update-config` skill |
 | 2 | a repeatable multi-step procedure | **skill** | tee up [write-a-skill](../write-a-skill) |
 | 3 | a project-specific convention/fact/constraint | **CLAUDE.md** | write directly |
 | 4 | a personal, cross-project preference | **memory** | write directly |

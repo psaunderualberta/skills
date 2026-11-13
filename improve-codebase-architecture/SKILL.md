@@ -13,7 +13,7 @@ A **deep module** (John Ousterhout, "A Philosophy of Software Design") has a sma
 
 ### 1. Explore the codebase
 
-Use the Agent tool with subagent_type=Explore to navigate the codebase naturally. Do NOT follow rigid heuristics — explore organically and note where you experience friction:
+Use the Agent tool with subagent_type=Explore to navigate the codebase, and note where you experience friction:
 
 - Where does understanding one concept require bouncing between many small files?
 - Where are modules so shallow that the interface is nearly as complex as the implementation?
@@ -32,7 +32,7 @@ Present a numbered list of deepening opportunities. For each candidate, show:
 - **Dependency category**: See [REFERENCE.md](REFERENCE.md) for the four categories
 - **Test impact**: What existing tests would be replaced by boundary tests
 
-Do NOT propose interfaces yet. Ask the user: "Which of these would you like to explore?"
+Do not propose interfaces yet. Ask the user: "Which of these would you like to explore?"
 
 ### 3. User picks a candidate
 
@@ -73,4 +73,4 @@ After comparing, give your own recommendation: which design you think is stronge
 
 ### 7. Create Refactor RFC
 
-Create a refactor RFC within a `refactors/` directory. Use the template in [REFERENCE.md](REFERENCE.md). Do NOT ask the user to review before creating — just create it and share the URL.
+Draft the refactor RFC with the template in [REFERENCE.md](REFERENCE.md) and show it to the user. After the user approves, create it as a GitHub issue and share the issue URL.

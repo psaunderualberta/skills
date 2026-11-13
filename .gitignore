@@ -1,2 +1,4 @@
 # Claude Code worktrees — ephemeral, per-session; never push alongside main edits
 .claude/worktrees/
+# Org skills that claude.ai syncs in; generated, not part of this repo
+synced/

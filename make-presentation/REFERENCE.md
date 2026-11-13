@@ -11,7 +11,7 @@ Everything here targets the **browser bundle** of PptxGenJS so the user needs no
 <body>
   <p>Your download should start automatically. If not, <button onclick="build()">click here</button>.</p>
   <!-- pin the version so the deck reproduces -->
-  <script src="https://cdn.jsdelivr.net/npm/pptxgenjs@4/dist/pptxgen.bundle.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/pptxgenjs@4.0.1/dist/pptxgen.bundle.js"></script>
   <script>
     function build() {
       const pptx = new PptxGenJS();

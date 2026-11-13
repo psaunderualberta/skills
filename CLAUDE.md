@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## What this repo is
 
-A personal collection of Claude Code **skills** (origin: `git@github.com:psaunderualberta/skills.git`). Each top-level directory is one skill, loaded by Claude Code from `~/.claude/skills/`. There is no build, no test suite, and no package manifest — content is markdown (plus occasional helper scripts) consumed directly by the agent harness.
+A personal collection of Claude Code **skills** (origin: `git@github.com:psaunderualberta/skills.git`). Each top-level directory is one skill, loaded by Claude Code from `~/.claude/skills/`. The exception is `synced/`, which claude.ai generates for org skills and `.gitignore` excludes. There is no build, no test suite, and no package manifest — content is markdown (plus occasional helper scripts) consumed directly by the agent harness.
 
 ## Skill anatomy
 
@@ -20,10 +20,10 @@ description: <what it does>. Use when <specific triggers>.
 The `description` is the **only** text the agent sees when deciding whether to load an auto-invoked skill, so it helps for it to state the capability and the trigger conditions (keywords, contexts, intents). `write-a-skill/SKILL.md` has the canonical guidance (max 1024 chars, third person, a "Use when …" clause). Treat these as defaults to reach for, not gates — command-style skills meant to be invoked by hand (`disable-model-invocation: true`, often with an `argument-hint`, e.g. `teach/`) legitimately skip the "Use when …" trigger clause, since the agent never auto-selects them.
 
 Optional sibling files in a skill directory:
-- `REFERENCE.md` / `EXAMPLES.md` / topic-named `.md` files — progressive disclosure for content that would push `SKILL.md` past ~100 lines (see `tdd/` which splits into `interface-design.md`, `refactoring.md`, `deep-modules.md`, `mocking.md`, `test.md`; and `improve-codebase-architecture/REFERENCE.md`).
+- `REFERENCE.md` / `EXAMPLES.md` / topic-named `.md` files — progressive disclosure for content that would push `SKILL.md` past 500 lines (see `tdd/` which splits into `interface-design.md`, `refactoring.md`, `deep-modules.md`, `mocking.md`, `test.md`; and `improve-codebase-architecture/REFERENCE.md`).
 - `scripts/` — utility scripts for deterministic operations.
 
-Aim to keep `SKILL.md` reasonably short (~100 lines is a good target); link out to siblings rather than inlining long content when it grows past that.
+Keep `SKILL.md` under 500 lines; link out to siblings rather than inlining long content when it grows past that.
 
 ## Conventions worth following
 
@@ -36,7 +36,7 @@ These are patterns that have worked well here, not hard rules. Imported or comma
 
 ## Authoring workflow
 
-When adding or editing a skill, `write-a-skill/SKILL.md` is a useful guide, and its review checklist (description has triggers, `SKILL.md` under 100 lines, no time-sensitive info, concrete examples, references one level deep) is worth a pass. Use it as a sanity check rather than a gate — skills imported from elsewhere can keep their own style.
+When adding or editing a skill, `write-a-skill/SKILL.md` is a useful guide, and its review checklist (description has triggers, `SKILL.md` under 500 lines, no time-sensitive info, concrete examples, references one level deep) is worth a pass. Use it as a sanity check rather than a gate — skills imported from elsewhere can keep their own style.
 
 ## Repo-specific notes
 
